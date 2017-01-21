@@ -19,6 +19,6 @@ A fun puzzle game implemented in console using C++
 
 ## Screenshots
 
-![](./screenshot/01.PNG)  
+![](./screenshot/02.PNG)  
 
-![](./screenshot/02.PNG)
+![](./screenshot/01.PNG)  
