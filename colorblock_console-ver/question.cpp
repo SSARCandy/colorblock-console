@@ -13,19 +13,16 @@
 
 const WORD colors[] =
 {
-	0x9A, 0x9C, 0x9E, 
+	0x9A, 0x9C, 0x9E,
 	0xA9, 0xAC, 0xAE,
-	0xC9, 0xCA, 0xCE, 
+	0xC9, 0xCA, 0xCE,
 	0xE9, 0xEA, 0xEC
 };
 
-void clears(Question *Q, int amount)
-{
+void clears(Question *Q, int amount) {
 	int i, j;
-	for (i = 0; i<amount; i++)
-	{
-		for (j = 0; j<10; j++)
-		{
+	for (i = 0; i < amount; i++) {
+		for (j = 0; j < 10; j++) {
 			Q[i].W[j] = '\0';
 		}
 		Q[i].color = 0;
@@ -34,150 +31,117 @@ void clears(Question *Q, int amount)
 }
 
 
-void problems(Question *Q, int amount)
-{
+void problems(Question *Q, int amount) {
 	int i = 0, words = 0, color;
 	char word[4][10] = { "  Red   ", "  Green ", " Yellow ", "  Blue  " };
 
-	for (i = 0; i<amount; i++)
-	{
+	for (i = 0; i < amount; i++) {
 		words = rand() % 4;
-		if (words == 0)
-		{
+		if (words == 0) {
 			strcpy_s(Q[i].W, word[0]);
 			color = rand() % 6;
-			if (color == 0)
-			{
+			if (color == 0) {
 				Q[i].color = 0;
 				Q[i].answer = '3';
 			}
-			if (color == 1)
-			{
+			if (color == 1) {
 				Q[i].color = 2;
 				Q[i].answer = '2';
 			}
-			if (color == 2)
-			{
+			if (color == 2) {
 				Q[i].color = 3;
 				Q[i].answer = '3';
 			}
-			if (color == 3)
-			{
+			if (color == 3) {
 				Q[i].color = 5;
 				Q[i].answer = '4';
 			}
-			if (color == 4)
-			{
+			if (color == 4) {
 				Q[i].color = 9;
 				Q[i].answer = '2';
 			}
-			if (color == 5)
-			{
+			if (color == 5) {
 				Q[i].color = 10;
 				Q[i].answer = '4';
 			}
-		}
-		else if (words == 1)
-		{
+		} else if (words == 1) {
 			strcpy_s(Q[i].W, word[1]);
 			color = rand() % 6;
-			if (color == 0)
-			{
+			if (color == 0) {
 				Q[i].color = 1;
 				Q[i].answer = '3';
 			}
-			if (color == 1)
-			{
+			if (color == 1) {
 				Q[i].color = 2;
 				Q[i].answer = '1';
 			}
-			if (color == 2)
-			{
+			if (color == 2) {
 				Q[i].color = 6;
 				Q[i].answer = '3';
 			}
-			if (color == 3)
-			{
+			if (color == 3) {
 				Q[i].color = 8;
 				Q[i].answer = '4';
 			}
-			if (color == 4)
-			{
+			if (color == 4) {
 				Q[i].color = 9;
 				Q[i].answer = '1';
 			}
-			if (color == 5)
-			{
+			if (color == 5) {
 				Q[i].color = 11;
 				Q[i].answer = '4';
 			}
-		}
-		else if (words == 2)
-		{
+		} else if (words == 2) {
 			strcpy_s(Q[i].W, word[2]);
 			color = rand() % 6;
-			if (color == 0)
-			{
+			if (color == 0) {
 				Q[i].color = 0;
 				Q[i].answer = '1';
 			}
-			if (color == 1)
-			{
+			if (color == 1) {
 				Q[i].color = 1;
 				Q[i].answer = '2';
 			}
-			if (color == 2)
-			{
+			if (color == 2) {
 				Q[i].color = 3;
 				Q[i].answer = '1';
 			}
-			if (color == 3)
-			{
+			if (color == 3) {
 				Q[i].color = 4;
 				Q[i].answer = '4';
 			}
-			if (color == 4)
-			{
+			if (color == 4) {
 				Q[i].color = 6;
 				Q[i].answer = '2';
 			}
-			if (color == 5)
-			{
+			if (color == 5) {
 				Q[i].color = 7;
 				Q[i].answer = '4';
 			}
-		}
-		else
-		{
+		} else {
 			strcpy_s(Q[i].W, word[3]);
 			color = rand() % 6;
-			if (color == 0)
-			{
+			if (color == 0) {
 				Q[i].color = 4;
 				Q[i].answer = '4';
 			}
-			if (color == 1)
-			{
+			if (color == 1) {
 				Q[i].color = 5;
 				Q[i].answer = '1';
 			}
-			if (color == 2)
-			{
+			if (color == 2) {
 				Q[i].color = 7;
 				Q[i].answer = '3';
 			}
-			if (color == 3)
-			{
+			if (color == 3) {
 				Q[i].color = 8;
 				Q[i].answer = '2';
 			}
-			if (color == 4)
-			{
+			if (color == 4) {
 				Q[i].color = 10;
 				Q[i].answer = '1';
 			}
-			if (color == 5)
-			{
+			if (color == 5) {
 				Q[i].color = 11;
 				Q[i].answer = '2';
 			}
@@ -186,8 +150,7 @@ void problems(Question *Q, int amount)
 }
 
 
-int print_sec(time_t &start_time, Question *Q, int i)
-{
+int print_sec(time_t &start_time, Question *Q, int i) {
 	static int sec = 0, score = 0, combo = 0, total_time = 30;
 	char inputans = '\0';
 	time_t tmp_time;
@@ -198,8 +161,7 @@ int print_sec(time_t &start_time, Question *Q, int i)
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
 	GetConsoleScreenBufferInfo(hstdout, &csbi);
 
-	if (sec < total_time)
-	{
+	if (sec < total_time) {
 		system("cls");
 		sec = (int)difftime(tmp_time, start_time);
 
@@ -214,14 +176,12 @@ int print_sec(time_t &start_time, Question *Q, int i)
 
 		printf(" : ");
 		if (sec > total_time) { return -2; }
-	//	scanf_s(" %c", &inputans);
-		
+		//	scanf_s(" %c", &inputans);
+
 		inputans = _getch();
 		if (inputans == '0' || inputans == '/');
-		else
-		{
-			switch ((inputans = _getch()))
-			{
+		else {
+			switch ((inputans = _getch())) {
 			case KEY_UP:
 				inputans = '1';
 				break;
@@ -240,21 +200,18 @@ int print_sec(time_t &start_time, Question *Q, int i)
 			}
 		}
 
-		if (inputans == '0')
-		{
+		if (inputans == '0') {
 			return -1;
 		}
 
-		if (inputans == Q[i].answer || inputans == '/')
-		{
+		if (inputans == Q[i].answer || inputans == '/') {
 			SetConsoleTextAttribute(hstdout, 0x0A);
 			printf("Correct!");
 			SetConsoleTextAttribute(hstdout, 0x0F);
 			printf("\n");
 
 			combo++;
-			if (combo == 5)
-			{
+			if (combo == 5) {
 				total_time = total_time + 5;
 				printf("\t\t\t   !! Bonus Time +5 s !!");
 				combo = 0;
@@ -262,9 +219,7 @@ int print_sec(time_t &start_time, Question *Q, int i)
 			}
 			Sleep(300);
 			return ++score;
-		}
-		else
-		{
+		} else {
 			SetConsoleTextAttribute(hstdout, 0x0C);
 			printf("Wrong!");
 			SetConsoleTextAttribute(hstdout, 0x0F);
@@ -279,8 +234,7 @@ int print_sec(time_t &start_time, Question *Q, int i)
 	return -2;
 }
 
-void printInfo()
-{
+void printInfo() {
 	HANDLE hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -320,7 +274,7 @@ void printInfo()
 		"\t  You will get bonus time if you get 10 combo corrects.              \n"
 		"\t                      ¡°How To Play:                                 \n");
 	SetConsoleTextAttribute(hstdout, 0x0F);
-	printf("\t\t\t\t    ");
+	printf("\t\t\t\t   ");
 	SetConsoleTextAttribute(hstdout, 0xC0);
 	printf("¡ô");
 

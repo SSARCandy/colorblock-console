@@ -5,8 +5,7 @@
 #include "question.h"
 #define SIZE 100
 
-int main()
-{
+int main() {
 	struct Question Quest[SIZE];
 	int i, score = 0, status = 0, acc;
 	time_t start_time;
@@ -16,24 +15,16 @@ int main()
 	time(&start_time);      //Get start time.
 	problems(Quest, SIZE);  //Fill 1000 questions.
 
-	for (i = 0; i<SIZE; i++)
-	{
+	for (i = 0; i < SIZE; i++) {
 		status = print_sec(start_time, Quest, i);
-		if (status == -1)
-		{
+		if (status == -1) {
 			break;
-		}
-		else if (status == 0)
-		{
+		} else if (status == 0) {
 			continue;
-		}
-		else if (status == -2)
-		{
+		} else if (status == -2) {
 			printf("\n\t\t\t\tTime is up!\n");
 			break;
-		}
-		else
-		{
+		} else {
 			score = status;
 		}
 	}
